@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Home - EcoGreen{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section text-center mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Sustainable Living Starts Here</h1>
+        <p class="lead">Join us in making the world a greener place, one step at a time</p>
+        <a href="/calculator" class="btn btn-light btn-lg mt-3">Calculate Your Footprint</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="mb-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Eco Mission</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center border-success">
+                    <div class="card-body">
+                        <i class="fas fa-leaf fa-3x text-success mb-3"></i>
+                        <h3 class="card-title">Reduce Waste</h3>
+                        <p class="card-text">Learn practical ways to minimize your household waste and live more sustainably.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center border-success">
+                    <div class="card-body">
+                        <i class="fas fa-solar-panel fa-3x text-success mb-3"></i>
+                        <h3 class="card-title">Save Energy</h3>
+                        <p class="card-text">Discover energy-saving tips that are good for both the planet and your wallet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center border-success">
+                    <div class="card-body">
+                        <i class="fas fa-recycle fa-3x text-success mb-3"></i>
+                        <h3 class="card-title">Recycle Right</h3>
+                        <p class="card-text">Master the art of recycling with our comprehensive guides and local resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section class="mb-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Latest Eco Tips</h2>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 eco-tip-card">
+                    <img src="{{ url_for('static', filename='images/' + post.image) }}" class="card-img-top" alt="{{ post.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text text-muted">By {{ post.author }} on {{ post.date }}</p>
+                        <a href="{{ url_for('blog_post', post_id=post.id) }}" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-3">
+            <a href="/blog" class="btn btn-success">View All Posts</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h2>Ready to Make a Difference?</h2>
+        <p class="lead mb-4">Join our community of eco-conscious individuals and get weekly tips delivered to your inbox.</p>
+        <form class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Your email address">
+                    <button class="btn btn-success" type="submit">Subscribe</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

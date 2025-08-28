@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Contact Us - EcoGreen{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <h1 class="mb-4">Contact EcoGreen</h1>
+        <p class="lead">We'd love to hear from you! Send us your questions, suggestions, or partnership inquiries.</p>
+        
+        <div class="row mt-5">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Get In Touch</h3>
+                        <form method="POST" action="{{ url_for('contact') }}">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Our Info</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-map-marker-alt text-success me-2"></i> 123 Green Way, Eco City, EC 12345</li>
+                            <li class="mb-3"><i class="fas fa-phone text-success me-2"></i> (123) 456-7890</li>
+                            <li class="mb-3"><i class="fas fa-envelope text-success me-2"></i> info@ecogreen.example</li>
+                            <li class="mb-3"><i class="fas fa-clock text-success me-2"></i> Mon-Fri: 9am-5pm</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Follow Us</h4>
+                        <div class="social-links mt-3">
+                            <a href="#" class="text-success me-3"><i class="fab fa-facebook-f fa-2x"></i></a>
+                            <a href="#" class="text-success me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="#" class="text-success me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="#" class="text-success"><i class="fab fa-linkedin-in fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

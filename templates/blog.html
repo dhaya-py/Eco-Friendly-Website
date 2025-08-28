@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Eco Blog - EcoGreen{% endblock %}
+{% block content %}
+<h1 class="mb-4">Eco Living Blog</h1>
+<p class="lead">Discover tips, stories, and inspiration for sustainable living.</p>
+
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <img src="{{ url_for('static', filename='images/' + post.image) }}" class="card-img-top" alt="{{ post.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text text-muted">By {{ post.author }} on {{ post.date }}</p>
+                <p class="card-text">{{ post.content[:150] }}...</p>
+                <a href="{{ url_for('blog_post', post_id=post.id) }}" class="btn btn-outline-success">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

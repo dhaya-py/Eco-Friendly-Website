@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - EcoGreen{% endblock %}
+{% block content %}
+<article>
+    <div class="mb-4">
+        <h1>{{ post.title }}</h1>
+        <div class="text-muted mb-3">
+            By {{ post.author }} | {{ post.date }}
+        </div>
+        <img src="{{ url_for('static', filename='images/' + post.image) }}" class="img-fluid rounded mb-4" alt="{{ post.title }}">
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="post-content">
+                <p>{{ post.content }}</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.</p>
+                <p>Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.</p>
+            </div>
+            
+            <div class="card bg-light mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Key Takeaways</h5>
+                    <ul>
+                        <li>Reduce your plastic use by carrying reusable bags and bottles</li>
+                        <li>Choose products with minimal packaging</li>
+                        <li>Recycle properly according to local guidelines</li>
+                        <li>Support businesses with sustainable practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">About the Author</h5>
+                    <p class="card-text">{{ post.author }} is a sustainability expert with over 10 years of experience in environmental advocacy and education.</p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Related Posts</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="#">How to Compost at Home</a></li>
+                        <li class="list-group-item"><a href="#">Eco-Friendly Cleaning Products</a></li>
+                        <li class="list-group-item"><a href="#">Sustainable Fashion Choices</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Carbon Footprint Calculator - EcoGreen{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <h1 class="mb-4">Carbon Footprint Calculator</h1>
+        <p class="lead">Calculate your environmental impact and discover ways to reduce it.</p>
+        
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('calculator') }}">
+                    <div class="mb-3">
+                        <label for="electricity" class="form-label">Monthly Electricity Usage (kWh)</label>
+                        <input type="number" class="form-control" id="electricity" name="electricity" step="0.1" min="0">
+                        <div class="form-text">Average household uses about 900 kWh/month</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="gas" class="form-label">Monthly Natural Gas Usage (therms)</label>
+                        <input type="number" class="form-control" id="gas" name="gas" step="0.1" min="0">
+                        <div class="form-text">1 therm = 100 cubic feet of gas</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="car_mileage" class="form-label">Annual Car Mileage</label>
+                        <input type="number" class="form-control" id="car_mileage" name="car_mileage" min="0">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="flights" class="form-label">Annual Flight Distance (miles)</label>
+                        <input type="number" class="form-control" id="flights" name="flights" min="0">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Calculate My Footprint</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h3>How It Works</h3>
+            <p>Our calculator estimates your carbon footprint based on standard emission factors:</p>
+            <ul>
+                <li>Electricity: 0.85 kg CO2 per kWh</li>
+                <li>Natural Gas: 2.3 kg CO2 per therm</li>
+                <li>Car Travel: 0.4 kg CO2 per mile</li>
+                <li>Flights: 0.18 kg CO2 per mile</li>
+            </ul>
+            <p>These are approximate values. Your actual footprint may vary based on specific factors.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
